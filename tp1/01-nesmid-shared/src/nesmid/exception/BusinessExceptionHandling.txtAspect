@@ -1,0 +1,10 @@
+package nesmid.exception;
+
+/**
+ * @author bellebia_d
+ * Define advices  where business excpetions may occur. 
+ */
+public aspect BusinessExceptionHandling extends ExceptionProtocol
+{
+	pointcut operations():call(* *.*(..) throws java.lang.RuntimeException);
+}

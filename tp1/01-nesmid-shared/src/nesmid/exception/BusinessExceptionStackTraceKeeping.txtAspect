@@ -1,0 +1,23 @@
+package nesmid.exception;
+/**
+ * To keep a stack trace to a business exception after throwing a concer runtimeexception
+ */
+public aspect BusinessExceptionStackTraceKeeping 
+{
+	declare precedence: BusinessExceptionStackTraceKeeping, BusinessExceptionHandling ;
+
+	after () throwing(ConcernRuntimeException ex) 
+	
+	throws BusinessException : 
+	
+	call(* *.*(..) throws BusinessException)
+	{
+		//Throwable cause = ex.getCause() ;
+		
+//		if(ex instanceof cnam.emiddle.kernel.external.exception.BusinessException)
+//		{
+//			throw (BusinessException)ex;
+//		}
+//		throw ex ;
+	}
+}

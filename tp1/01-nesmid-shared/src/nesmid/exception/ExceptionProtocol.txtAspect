@@ -1,0 +1,23 @@
+package nesmid.exception;
+
+public abstract aspect ExceptionProtocol 
+{
+	abstract pointcut operations();
+	
+	Object around (): operations()
+	{
+		try
+		{
+			return proceed();
+		}
+		catch (Throwable ex)
+		{
+			System.out.println("TON REP 12369") ;
+			throw new ConcernRuntimeException(ex);
+		}
+	}
+	void concernLogic () throws ConcernException
+	{
+		throw new ConcernException ();
+	}
+}
